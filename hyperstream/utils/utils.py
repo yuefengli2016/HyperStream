@@ -36,8 +36,9 @@ from treelib.tree import Tree, NodePropertyAbsentError, NodeIDAbsentError
 
 # The next two lines are to fix the "UnicodeDecodeError: 'ascii' codec can't decode byte" error
 #  http://stackoverflow.com/questions/21129020/how-to-fix-unicodedecodeerror-ascii-codec-cant-decode-byte
-reload(sys)
-sys.setdefaultencoding('utf8')
+if sys.version_info < (3, 0):
+    reload(sys)
+    sys.setdefaultencoding('utf8')
 
 
 @python_2_unicode_compatible

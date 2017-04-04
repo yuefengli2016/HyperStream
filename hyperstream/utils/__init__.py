@@ -18,14 +18,14 @@
 #  OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE
 #  OR OTHER DEALINGS IN THE SOFTWARE.
 
-from utils import MetaDataTree, Hashable, Printable, TypedBiDict, FrozenKeyDict, TypedFrozenKeyDict
-from hyperstream_logger import HyperStreamLogger
-from time_utils import UTC, MIN_DATE, MAX_DATE, utcnow, get_timedelta, unix2datetime, construct_experiment_id, \
+from .utils import MetaDataTree, Hashable, Printable, TypedBiDict, FrozenKeyDict, TypedFrozenKeyDict
+from .hyperstream_logger import HyperStreamLogger
+from .time_utils import UTC, MIN_DATE, MAX_DATE, utcnow, get_timedelta, unix2datetime, construct_experiment_id, \
     duration2str, reconstruct_interval
-from decorators import timeit, check_output_format, check_tool_defined, check_input_stream_count
-from errors import StreamNotAvailableError, StreamAlreadyExistsError, StreamDataNotAvailableError, \
+from .decorators import timeit, check_output_format, check_tool_defined, check_input_stream_count
+from .errors import StreamNotAvailableError, StreamAlreadyExistsError, StreamDataNotAvailableError, \
     StreamNotFoundError, IncompatiblePlatesError, ToolNotFoundError, ChannelNotFoundError, ToolExecutionError, \
     PlateEmptyError, PlateDefinitionError, LinkageError, FactorAlreadyExistsError, NodeAlreadyExistsError, \
     FactorDefinitionError, ChannelAlreadyExistsError, NodeDefinitionError, ToolInitialisationError, \
     IncompatibleToolError, MultipleStreamsFoundError, PlateNotFoundError
-from serialization import func_dump, func_load
+from .serialization import func_dump, func_load

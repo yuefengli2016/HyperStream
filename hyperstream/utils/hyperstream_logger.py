@@ -28,7 +28,7 @@ import json
 from datetime import datetime
 
 from . import Printable
-from utils import touch, handle_exception
+from .utils import touch, handle_exception
 from ..version import __version__
 
 
@@ -186,10 +186,15 @@ class SenMLFormatter(logging.Formatter):
         if not hasattr(record, 'n'):
             record.n = 'default'
 
+        try:
+            message = record.message
+        except AttributeError:
+            message = record.msg
+
         senml = OrderedDict(
             uid="hyperstream",
             bt=datetime.utcfromtimestamp(record.created).isoformat()[:-3] + 'Z',
-            e=[OrderedDict(n=record.n, v=record.message)]
+            e=[OrderedDict(n=record.n, v=message)]
         )
 
         formatted_json = json.dumps(senml)

@@ -22,7 +22,7 @@ import unittest
 
 from hyperstream import HyperStream, Stream
 from hyperstream.utils import MIN_DATE, utcnow
-from helpers import *
+from .helpers import *
 
 
 class TestToolChannel(unittest.TestCase):

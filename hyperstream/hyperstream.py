@@ -23,7 +23,7 @@ Main HyperStream class
 """
 
 from . import ChannelManager, HyperStreamConfig, PlateManager, WorkflowManager, Client, Workflow
-from utils import HyperStreamLogger
+from .utils import HyperStreamLogger
 
 import logging
 

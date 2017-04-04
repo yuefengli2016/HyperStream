@@ -21,7 +21,9 @@
 
 import logging
 import pickle
-import copy_reg
+# import copy_reg
+import six.moves.copyreg as copy_reg
+
 import marshal
 import types
 from copy import deepcopy

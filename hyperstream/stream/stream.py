@@ -43,7 +43,7 @@ class Stream(Hashable):
         :type channel: BaseChannel
         :type stream_id: StreamId
         :type calculated_intervals: TimeIntervals, None
-        :type sandbox: str, unicode, None
+        :type sandbox: six.text_type, None
         """
         self.channel = channel
         if not isinstance(stream_id, StreamId):

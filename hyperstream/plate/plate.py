@@ -22,6 +22,7 @@ Plate definition.
 """
 from hyperstream.utils import Printable
 
+import six
 import itertools
 from collections import deque
 
@@ -193,7 +194,7 @@ class Plate(Printable):
         :return: The combined plate values
         """
         if parent_plate_value:
-            if isinstance(plate_value[0], (str, unicode)):
+            if isinstance(plate_value[0], six.text_type):
                 combined_plate_value = parent_plate_value + (plate_value,)
             elif isinstance(plate_value[0], tuple):
                 combined_plate_value = parent_plate_value + plate_value

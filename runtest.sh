@@ -1,7 +1,7 @@
 #!/bin/bash
 
 echo "Activating virtual environment"
-. ../venv/bin/activate
+. ./venv/bin/activate
 
 function stop_container
 {
@@ -22,10 +22,6 @@ function start_container
     WAIT_PORT=$3
     if [ `docker ps -a --format="{{ .Names }}" | grep $NAME` ]
     then
-<<<<<<< HEAD
-=======
-        echo "The docker container $NAME already exists"
->>>>>>> 90776b1fdf06bab5d8154e31ad468797c19e95dc
         stop_container $NAME
     fi
     CONTAINER=`docker run --name $NAME $ARGUMENTS`
@@ -41,18 +37,7 @@ start_container "hs_mongodb" "${DOCKER_ARGUMENTS}" 27017
 DOCKER_ARGUMENTS='-d -ti -p 1883:1883 -p 9001:9001 toke/mosquitto'
 start_container "hs_mqtt" "${DOCKER_ARGUMENTS}" 9001
 
-key=""
-while :
-do
-    date
-	echo "Press q to finish the tutorial..."
-    read -n 1 key
-
-    if [[ $key = q ]]
-    then
-        break
-    fi
-done
+nosetests --with-coverage
 
 stop_container "hs_mqtt"
 stop_container "hs_mongodb"
